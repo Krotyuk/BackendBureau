@@ -6,13 +6,13 @@ import java.util.Collection;
 
 public interface BidRepository {
 
-    Bid fetchBid(Integer id);
+    Bid fetchBid(String id);
 
     Bid updateBid(Bid bid);
 
-    void deleteBid(Integer id);
+    void deleteBid(String id);
 
     Bid createBid(Bid bid);
 
-    Collection<Bid> getAllBids();
+    Collection<Bid> getAllBids(String task_id);
 }

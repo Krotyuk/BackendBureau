@@ -18,12 +18,14 @@ import java.io.Serializable;
 @AllArgsConstructor
 public class Bid implements Serializable{
 
-    private Integer id_bid;
-    private String name_author;
-    private String description;
+    private String bid_id;
+    private String task_id;
+    private String user_id;
+    private String user_name;
+    private String text;
     private String Date;
-    private Boolean status;
-    private Integer user_id;
+
+
 
 
 

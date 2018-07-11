@@ -31,8 +31,8 @@ public class TaskService {
   }
 
 
-  public Task createTask(Task task) {
-    taskRepository.createTask(task);
+  public Task createTask(Task task, String user_name) {
+    taskRepository.createTask(task, user_name);
     return task;
   }
 

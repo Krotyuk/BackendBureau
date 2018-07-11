@@ -16,38 +16,38 @@ public class InMemoryBidRepository implements BidRepository {
   private Map<String, Bid> bidCache = new HashMap<>();
 
   public InMemoryBidRepository() {
-    bidCache.put("1", new Bid(1, "Андрей", "Поднять диван девчушке", "15.06.2020",
-            false, 1));
-    bidCache.put("2", new Bid(2, "Максим", "Не поднять бабла ", "15.06.2019",
-            false, 2));
+    bidCache.put("1", new Bid("1", "1", "1", "Андрей",
+            "Я могу лучше, блджад!", "16.06.2020"));
+    bidCache.put("2", new Bid("2", "1", "2 ", "Максим",
+            "Я могу!", "15.06.2020"));
   }
 
 
   @Override
-  public Bid fetchBid(final Integer id) {
+  public Bid fetchBid(final String id) {
     return bidCache.get(id);
   }
 
   @Override
   public Bid updateBid(final Bid bid) {
-    bidCache.put(bid.getId_bid().toString(), bid);
+    bidCache.put(bid.getBid_id().toString(), bid);
     return bid;
   }
 
   @Override
-  public void deleteBid(final Integer id) {
+  public void deleteBid(final String id) {
     bidCache.remove(id);
   }
 
   @Override
   public Bid createBid(final Bid bid) {
-    bid.setId_bid(Integer.valueOf((int)(System.currentTimeMillis())));  //очень плохой способ генерировать Id, тут только для примера
-    bidCache.put(bid.getId_bid().toString(), bid);
+    bid.setBid_id(String.valueOf((int)(System.currentTimeMillis())));  //очень плохой способ генерировать Id, тут только для примера
+    bidCache.put(bid.getBid_id().toString(), bid);
     return bid;
   }
 
   @Override
-  public Collection<Bid> getAllBids() {
-    return bidCache.values();
+  public Collection<Bid> getAllBids(String task_id) {
+    return bidCache.values(); //TODO: find by task_id
   }
 }

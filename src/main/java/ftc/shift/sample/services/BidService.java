@@ -6,6 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Collection;
 
+import org.springframework.stereotype.Service;
+
+@Service
 public class BidService {
 
     private final BidRepository bidRepository;
@@ -17,7 +20,7 @@ public class BidService {
         this.bidRepository = bidRepository;
     }
 
-    public Bid provideBid(Integer id) {
+    public Bid provideBid(String id) {
         return bidRepository.fetchBid(id);
     }
 
@@ -26,7 +29,7 @@ public class BidService {
         return bid;
     }
 
-    public void deleteBid(Integer id) {
+    public void deleteBid(String id) {
         bidRepository.deleteBid(id);
     }
 
@@ -36,8 +39,8 @@ public class BidService {
         return bid;
     }
 
-    public Collection<Bid> provideBids() {
-        return bidRepository.getAllBids();
+    public Collection<Bid> provideBids(String task_id) {
+        return bidRepository.getAllBids(task_id);
     }
 
 }

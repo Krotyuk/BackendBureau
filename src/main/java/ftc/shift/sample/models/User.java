@@ -18,12 +18,9 @@ import java.io.Serializable;
 @AllArgsConstructor
 public class User implements Serializable{
 
-    private Integer id_bid;
-    private String name_author;
-    private String description;
-    private String Date;
-    private Boolean status;
-    private String user_id;
+    private String id;
+    private String name;
+    private String phone;
 
 
 }

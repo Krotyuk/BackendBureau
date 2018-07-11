@@ -41,4 +41,6 @@ public class JacksonConfiguration extends WebMvcConfigurerAdapter {
             }
         };
     }
+
+
 }

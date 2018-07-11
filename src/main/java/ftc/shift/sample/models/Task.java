@@ -21,8 +21,8 @@ import java.io.Serializable;
 public class Task implements Serializable{
 
     Task task;
-    private Integer task_id;
-    private Integer user_id; //Потом будет получаться из другого источника
+    private String task_id;
+    private String user_id; //Потом будет получаться из другого источника
     private String title;
     private String short_description;
     private String description;
@@ -31,7 +31,7 @@ public class Task implements Serializable{
 
 
     //для запроса общего списка задач
-    public Task(Integer task_id, Integer user_id, String title, String short_description, String date){
+    public Task(String task_id, String user_id, String title, String short_description, String date){
         this.task_id = task_id;
         this.user_id = user_id;
         this.title = title;
@@ -40,7 +40,7 @@ public class Task implements Serializable{
 
     }
     //для запроса конкретной задачи по иду
-    public Task(Integer task_id, Integer user_id, String title, String description, String date, String status){
+    public Task(String task_id, String user_id, String title, String description, String date, String status){
         this.task_id = task_id;
         this.user_id = user_id;
         this.title = title;
