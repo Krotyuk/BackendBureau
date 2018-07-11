@@ -1,5 +1,5 @@
 package ftc.shift.sample.api;
-import ftc.shift.sample.models.Task;
+import ftc.shift.sample.models.*;
 import org.json.*;
 
 
@@ -25,8 +25,8 @@ public class Taker {
         task.setDate(arrTask[4]);
         return task;
     }
-}
-  /*  public takeUser(String userJ) {
+
+    public User takeUser(String userJ) {
 
 
         JSONObject obj = new JSONObject(userJ);
@@ -36,23 +36,29 @@ public class Taker {
         String phone = obj.getJSONObject("data").getString("phone");
 
         String[] arrUser={id,name,phone};
-        return arrUser;
+        User user = new User();
+        user.setId(arrUser[0]);
+        user.setName(arrUser[1]);
+        user.setPhone(arrUser[2]);
+        return user;
     }
-    public takeBid(String bidJ) {
+
+    public Bid takeBid(String bidJ) {
 
 
         JSONObject obj = new JSONObject(bidJ);
         
-        String bid_id = obj.getJSONObject("data").getString("bid_id");
         String task_id = obj.getJSONObject("data").getString("task_id");
-        String user_id = obj.getJSONObject("data").getString("user_id");
-        String user_name = obj.getJSONObject("data").getString("user_name");
         String text = obj.getJSONObject("data").getString("text");
         String date = obj.getJSONObject("data").getString("date");
+        String user_phone = obj.getJSONObject("data").getString("user_phone");
 
-
-        String[] arrBid={bid_id,task_id,user_id,user_name,text,date};
-        return arrBid;
+        String[] arrBid={task_id,text,date,user_phone};
+        Bid bid = new Bid();
+        bid.setTask_id(arrBid[0]);
+        bid.setText(arrBid[1]);
+        bid.setDate(arrBid[2]);
+        bid.setText(arrBid[3]);
+        return bid;
     }
 }
-*/
