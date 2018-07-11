@@ -1,0 +1,58 @@
+package ftc.shift.sample.api;
+import ftc.shift.sample.models.Task;
+import org.json.*;
+
+
+public class Taker {
+    public Task takeTask(String taskJ) {
+
+
+        JSONObject obj = new JSONObject(taskJ);
+
+        String user_name = obj.getJSONObject("data").getString("user_name");
+        String title = obj.getJSONObject("data").getString("title");
+        String description = obj.getJSONObject("data").getString("short_description");
+        String short_description = obj.getJSONObject("data").getString("description");
+        String date = obj.getJSONObject("data").getString("date");
+
+
+        String[] arrTask={user_name,title,description,short_description,date};
+        Task task = new Task();
+        task.setUser_name(arrTask[0]);
+        task.setTitle(arrTask[1]);
+        task.setDescription(arrTask[2]);
+        task.setShort_description(arrTask[3]);
+        task.setDate(arrTask[4]);
+        return task;
+    }
+}
+  /*  public takeUser(String userJ) {
+
+
+        JSONObject obj = new JSONObject(userJ);
+
+        String id = obj.getJSONObject("data").getString("id");
+        String name = obj.getJSONObject("data").getString("name");
+        String phone = obj.getJSONObject("data").getString("phone");
+
+        String[] arrUser={id,name,phone};
+        return arrUser;
+    }
+    public takeBid(String bidJ) {
+
+
+        JSONObject obj = new JSONObject(bidJ);
+        
+        String bid_id = obj.getJSONObject("data").getString("bid_id");
+        String task_id = obj.getJSONObject("data").getString("task_id");
+        String user_id = obj.getJSONObject("data").getString("user_id");
+        String user_name = obj.getJSONObject("data").getString("user_name");
+        String text = obj.getJSONObject("data").getString("text");
+        String date = obj.getJSONObject("data").getString("date");
+
+
+        String[] arrBid={bid_id,task_id,user_id,user_name,text,date};
+        return arrBid;
+    }
+}
+*/
