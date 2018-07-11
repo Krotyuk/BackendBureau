@@ -24,8 +24,8 @@ public class BidService {
         return bidRepository.fetchBid(id);
     }
 
-    public Bid updateBid(Bid bid) {
-        bidRepository.updateBid(bid);
+    public Bid updateBid(Bid bid, String idBid) {
+        bidRepository.updateBid(bid, idBid);
         return bid;
     }
 
@@ -34,8 +34,8 @@ public class BidService {
     }
 
 
-    public Bid createBid(Bid bid) {
-        bidRepository.createBid(bid);
+    public Bid createBid(Bid bid, String user_phone) {
+        bidRepository.createBid(bid, user_phone);
         return bid;
     }
 

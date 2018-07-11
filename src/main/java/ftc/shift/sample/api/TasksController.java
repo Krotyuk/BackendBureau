@@ -26,7 +26,7 @@ public class TasksController {
 
 
   @GetMapping(BIDS_PATH)
- 
+  public @ResponseBody
   BaseResponse<Collection<Bid>> listBids(@PathVariable String id) {
 
     BaseResponse<Collection<Bid>> response = new BaseResponse<>();

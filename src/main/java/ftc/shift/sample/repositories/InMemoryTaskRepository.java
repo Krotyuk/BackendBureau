@@ -20,16 +20,6 @@ public class InMemoryTaskRepository extends JdbcDaoSupport implements TaskReposi
 
   JdbcTemplate jdbcTemplate;
 
-  private Map<String, Task> fromDataToMap (Collection<Task> taskCollection){
-    Map<String, Task> taskCache = new HashMap<>();
-    Iterator<Task> iterator = taskCollection.iterator();
-    for(int i = 1; iterator.hasNext(); i++) {
-      taskCache.put(String.valueOf(i), iterator.next());
-    }
-    return taskCache;
-
-
-  }
 
   public InMemoryTaskRepository(@Qualifier("dataSource") DataSource dataSource) {
     this.setDataSource(dataSource);
@@ -76,17 +66,15 @@ public class InMemoryTaskRepository extends JdbcDaoSupport implements TaskReposi
   @Override
   public Collection<Task> getAllTasks() {
     String sql = "SELECT * FROM tasks";
-    String sqlGetNumOfRows = "SELECT COUNT(DISTINCT task_id)\n" +
-            "FROM tasks;";
-    //Сейчас будет костыль за который мне очень стыдно
   Collection<Task> result = new ArrayList<>();
     List<Map<String, Object>> rows = getJdbcTemplate().queryForList(sql);
     for (Map row : rows) {
       Task task = new Task();
       task.setTask_id(String.valueOf(row.get("task_id")));
-      //task.set((String)row.get("NAME"));
-      //task.setAge((Integer)row.get("AGE"));
-      //task.add(customer);
+      //task.setUser_id(String.valueOf(row.get("user_id")));
+      task.setTitle((String) row.get("title"));
+      task.setShort_description((String) row.get("short_desc"));
+      task.setDate((String) row.get("date"));
       result.add(task);
     }
 
