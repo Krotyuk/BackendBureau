@@ -34,7 +34,20 @@ public class InMemoryUserRepository extends JdbcDaoSupport implements UserReposi
     this.setDataSource(dataSource);
 
   }
+//Karma start
+   @Override
+  public User updateKarmaUp(final User user) {
+    String sql = "UPDATE users SET karma = karma+10 WHERE id = id";
+    jdbcTemplate.update(sql, user.setKarma());
+    return user;
 
+    @Override
+  public User updateKarmaDown(final User user) {
+    String sql = "UPDATE users SET karma = karma-10 WHERE id = id";
+    jdbcTemplate.update(sql, user.setKarma());
+    return user;
+  }
+  //Karma end
 
   @Override
   public User fetchUser(final String id) {
